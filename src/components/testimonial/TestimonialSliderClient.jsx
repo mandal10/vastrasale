@@ -80,7 +80,7 @@ export default function TestimonialSliderClient({ testimonials }) {
     <div className="">
     <Slider {...settings}>
       {testimonials.map(({ id, name, image, rating, stars, text }) => (
-        <div key={id} className="px-5 pb-5">
+        <div key={id} className="px-2 pb-5">
           <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
             <div className="relative w-28 h-28 rounded-full border-4 border-white shadow-xl ring-4 ring-yellow-500 mb-4 overflow-hidden transition-transform duration-300 hover:scale-105">
               <Image src={image} alt={name} fill className="rounded-full" />

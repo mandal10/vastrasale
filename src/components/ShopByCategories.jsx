@@ -70,21 +70,21 @@ const categories = [
 
 export default function ShopByCategories() {
   return (
-    <section className="py-10 w-[95%] max-w-[1400px] mx-auto bg-white">
-      <h2 className="text-3xl md:text-4xl font-semibold mb-8">Shop by Categories</h2>
+    <section className="py-10 md:py-0 w-[95%] max-w-[1400px] mx-auto bg-white px-2">
+      <h2 className="text-3xl md:text-4xl font-semibold mb-8 mt-10 md:mt-0">Shop by Categories</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 h-[400px] sm:h-[600px] md:h-[450px]">
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="relative rounded-lg overflow-hidden cursor-pointer group"
+            className="relative rounded-lg overflow-hidden cursor-pointer  group"
           >
             <Image
               src={cat.src}
               alt={cat.alt}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               priority={index < 3}
             />
             {/* Bottom Slide-up Overlay */}

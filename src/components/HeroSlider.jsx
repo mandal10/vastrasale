@@ -68,7 +68,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative mt-32 md:mt-0 ">
       <Slider {...settings}>
         {slides.map((slide) => (
           <div key={slide.id} className="relative w-full h-[400px] xl:h-[450px]">

@@ -29,7 +29,7 @@ const testimonials = [
 
 export default function TestimonialSlider() {
   return (
-    <section className="max-w-[1400px] w-[95%] mx-auto py-10">
+    <section className="max-w-[1400px] w-[95%] mx-auto md:py-10 py-0">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
         What Our Customer Says
       </h2>

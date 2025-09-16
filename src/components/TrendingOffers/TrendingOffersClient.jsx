@@ -60,18 +60,18 @@ export default function TrendingOffersClient({ cards }) {
                              transition hover:shadow-xl cursor-pointer">
             {/* Left Content */}
             <div className="w-full md:w-1/2 flex flex-col order-2 md:order-1 
-                            justify-center items-center text-center p-6 
+                            justify-center items-center text-center p-4 md:p-6 
                             bg-gradient-to-br from-gray-50 to-white">
               <Image
                 src={card.logo}
                 alt="Brand Logo"
                 width={120}
                 height={60}
-                className="mb-6"
+                className="md:mb-6 mb-2"
                 priority
               />
               <h3 className="text-2xl font-bold text-gray-800 mb-3">{card.offer}</h3>
-              <p className="text-gray-600 text-sm mb-6 max-w-md">
+              <p className="text-gray-600 text-sm mb-3 md:mb-6 max-w-md">
                 Discover the latest styles at unbeatable prices. Don’t miss
                 this limited-time offer!
               </p>
@@ -82,7 +82,7 @@ export default function TrendingOffersClient({ cards }) {
             </div>
 
             {/* Right Image */}
-            <div className="w-full md:w-1/2 h-64 md:h-auto order-1 md:order-2 relative">
+            <div className="w-full md:w-1/2 h-50 md:h-auto order-1 md:order-2 relative">
               <Image
                 src={card.img}
                 alt={card.offer}
