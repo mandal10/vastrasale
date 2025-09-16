@@ -2,12 +2,14 @@ import React from 'react'
 import Navbar from '../Navbar'
 import InviteBanner from '../InviteBanner'
 import HeroSlider from '../HeroSlider'
-import TrendingProduct from '../TrendingProduct'
-import DealsOfTheDay from '../DealsOfTheDay'
-import TrendingOffers from '../TrendingOffers'
+import TrendingProduct from '../trendingproduct/TrendingProduct'
+import DealsOfTheDay from '../dealsoftheday/DealsOfTheDay'
+import TrendingOffers from '../TrendingOffers/TrendingOffers'
 import PromoBanner from '../PromoBanner'
 import ShopByCategories from '../ShopByCategories'
-import Testimonial from '../Testimonial'
+
+import TestimonialSliderClient from '../testimonial/TestimonialSliderClient'
+import TestimonialSlider from '../testimonial/TestimonialSlider'
 
 const MainHomePage = () => {
   return (
@@ -20,7 +22,7 @@ const MainHomePage = () => {
         <TrendingOffers/>
         <PromoBanner/>
         <ShopByCategories/>
-        <Testimonial/>
+        <TestimonialSlider/>
     </div>
   )
 }

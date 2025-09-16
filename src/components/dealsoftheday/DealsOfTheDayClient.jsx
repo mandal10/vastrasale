@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 
@@ -13,22 +14,34 @@ const cards = [
   { img: "/assets/images/t2.png", brandLogo: "/assets/images/levis.png", title: "Best of Styles", price: "Under Rs.799" },
 ];
 
-export default function DealsOfTheDay() {
+export default function DealsOfTheDayClient() {
+  const [slidesToShow, setSlidesToShow] = useState(3.5);
+
+  const getSlidesToShow = () => {
+    const width = window.innerWidth;
+    if (width < 400) return 1;
+    if (width < 900) return 2;
+    if (width < 1200) return 2.5;
+    return 3.5;
+  };
+
+  useEffect(() => {
+    const updateSlides = () => setSlidesToShow(getSlidesToShow());
+    updateSlides();
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   const settings = {
-     dots: false,
-        infinite: true,
-        speed: 1500,
-        slidesToShow: 3.5,
-        slidesToScroll: 1,
-        swipeToSlide: true,   
-        autoplay: true,
-        autoplaySpeed: 200,  
-        cssEase: "ease-out", 
-    responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 2.5 } },
-      { breakpoint: 900, settings: { slidesToShow: 2 } },
-      { breakpoint: 400, settings: { slidesToShow: 1 } },
-    ],
+    dots: false,
+    infinite: true,
+    speed: 800,
+    slidesToShow,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "ease-out",
   };
 
   return (
@@ -38,7 +51,7 @@ export default function DealsOfTheDay() {
         {cards.map((card, idx) => (
           <div key={idx} className="px-2">
             <div className="rounded-lg shadow-md cursor-pointer overflow-hidden bg-white">
-              <div className="w-full h-45 relative">
+              <div className="w-full h-48 relative">
                 <Image
                   src={card.img}
                   alt="Card Image"
@@ -53,11 +66,10 @@ export default function DealsOfTheDay() {
                 <div className="mb-2">
                   <Image
                     src={card.brandLogo}
-                    alt="Levi's Logo"
+                    alt="Brand Logo"
                     width={80}
                     height={40}
                     className="mx-auto"
-                    
                   />
                 </div>
                 <p className="text-lg font-semibold text-gray-800">{card.title}</p>

@@ -65,7 +65,7 @@ export default function PromoSlider() {
     };
 
     return (
-        <section className="relative h-screen overflow-hidden">
+        <section className="relative h-screen    mb-15">
             <div className="grid grid-cols-1 md:grid-cols-[55%_45%] h-full transition-all duration-700">
                 {/* Left Side - Image */}
                 <div className="relative w-full h-[300px] md:h-full">
@@ -80,10 +80,10 @@ export default function PromoSlider() {
                 </div>
 
                 {/* Right Side - Text */}
-                <div className="flex flex-col justify-center items-center text-center md:text-left bg-[#1C4444] text-white p-10 transition-all duration-500">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6">{slides[current].title}</h1>
-                    <p className="text-2xl md:text-3xl font-semibold mb-4">{slides[current].subtitle}</p>
-                    <p className="text-xl md:text-2xl mb-6">{slides[current].discount}</p>
+                <div className="flex flex-col justify-center items-center text-center md:text-left bg-[#1C4444] text-white p-10 pb-20 md:pb-0 transition-all duration-500">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">{slides[current].title}</h1>
+                    <p className="text-2xl md:text-3xl font-semibold mb-2 md:mb-4">{slides[current].subtitle}</p>
+                    <p className="text-xl md:text-2xl mb-4 md:mb-6">{slides[current].discount}</p>
                     <button className="border border-white px-6 py-2 text-white hover:bg-white hover:text-[#1C4444] transition duration-300">
                         Explore Now
                     </button>
@@ -91,7 +91,7 @@ export default function PromoSlider() {
             </div>
 
             {/* Navigation Dots */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute md:bottom-6  mt-2 sm:mt-0 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
                 {slides.map((_, index) => (
                     <button
                         key={index}
