@@ -65,10 +65,10 @@ export default function PromoSlider() {
     };
 
     return (
-        <section className="relative h-screen   mb-15">
+        <section className="relative h-screen   md:mb-15 mb-0">
             <div className="grid grid-cols-1 md:grid-cols-[55%_45%] h-full transition-all duration-700">
                 {/* Left Side - Image */}
-                <div className="relative w-full h-[300px] md:h-full">
+                <div className="relative w-full h-[370px] md:h-full">
                     <Image
                         src={slides[current].image}
                         alt={slides[current].title}
@@ -91,7 +91,7 @@ export default function PromoSlider() {
             </div>
 
             {/* Navigation Dots */}
-            <div className="absolute md:bottom-6  mt-15 md:mt-0 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute bottom-10   left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
                 {slides.map((_, index) => (
                     <button
                         key={index}
