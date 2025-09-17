@@ -61,22 +61,26 @@ export default function TrendingOffersClient({ cards }) {
             {/* Left Content */}
             <div className="w-full md:w-1/2 flex flex-col order-2 md:order-1 
                             justify-center items-center text-center p-4 md:p-6 
-                            bg-gradient-to-br from-gray-50 to-white">
-              <Image
-                src={card.logo}
-                alt="Brand Logo"
-                width={120}
-                height={60}
-                className="md:mb-6 mb-2"
-                priority
-              />
+                            bg-gradient-to-br from-gray-50  to-white">
+              <div className="h-15 w-[180px] relative md:mb-6 mb-3 flex items-center justify-center">
+                <Image
+                  src={card.logo}
+                  alt="Brand Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                  sizes="(max-width: 768px) 120px, 180px"
+                />
+              </div>
+
+
               <h3 className="text-2xl font-bold text-gray-800 mb-3">{card.offer}</h3>
               <p className="text-gray-600 text-sm mb-3 md:mb-6 max-w-md">
                 Discover the latest styles at unbeatable prices. Don’t miss
                 this limited-time offer!
               </p>
               <button className="px-6 py-3 bg-black text-white rounded-full font-semibold 
-                                 hover:bg-gray-800 transform hover:scale-105 transition">
+                 hover:bg-gray-800 transform hover:scale-105 transition">
                 Explore
               </button>
             </div>
@@ -88,6 +92,9 @@ export default function TrendingOffersClient({ cards }) {
                 alt={card.offer}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw,
+                         (max-width: 1200px) 50vw,
+                         33vw"
                 priority={idx === 0}
               />
             </div>

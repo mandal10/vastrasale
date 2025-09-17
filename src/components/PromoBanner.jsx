@@ -35,7 +35,7 @@ export default function PromoSlider() {
   };
 
   return (
-    <section className="relative w-full md:pb-20 pb-10 pt-0">
+    <section className="relative w-full md:pb-10 pb-10 pt-0">
       <div className="grid grid-cols-1 md:grid-cols-[55%_45%] h-full transition-all duration-700">
         {/* Left Side - Image */}
         <div className="relative w-full h-[300px] md:h-full">
@@ -50,7 +50,7 @@ export default function PromoSlider() {
         </div>
 
         {/* Right Side - Text */}
-        <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left bg-[#1C4444] text-white pb-20 p-6 md:p-10 transition-all duration-700">
+        <div className="flex flex-col justify-center items-center text-center md:text-left bg-[#1C4444] text-white pb-20 p-6 md:p-10 transition-all duration-700">
           <h1 className="text-3xl md:text-6xl font-bold mb-2 md:mb-4">{slides[current].title}</h1>
           <p className="text-xl md:text-3xl font-semibold mb-2 md:mb-4">{slides[current].subtitle}</p>
           <p className="text-lg md:text-2xl mb-4 md:mb-6">{slides[current].discount}</p>
@@ -61,7 +61,7 @@ export default function PromoSlider() {
       </div>
 
       {/* Navigation Dots */}
-      <div className="absolute bottom-20 md:bottom-25  left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+      <div className="absolute bottom-20 md:bottom-15  left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
         {slides.map((_, index) => (
           <button
             key={index}

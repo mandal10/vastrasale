@@ -34,7 +34,7 @@ export default function DealsOfTheDayClient() {
 
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 800,
     slidesToShow,
     slidesToScroll: 1,
@@ -51,7 +51,7 @@ export default function DealsOfTheDayClient() {
         {cards.map((card, idx) => (
           <div key={idx} className="px-2">
             <div className="rounded-lg shadow-md cursor-pointer overflow-hidden bg-white">
-              <div className="w-full h-48 relative">
+              <div className="w-full h-48 relative ">
                 <Image
                   src={card.img}
                   alt="Card Image"
@@ -63,18 +63,24 @@ export default function DealsOfTheDayClient() {
                 />
               </div>
               <div className="p-4 text-center">
-                <div className="mb-2">
+                {/* Logo Box */}
+                <div className="flex items-center justify-center">
+                  <div className="mb-2 h-10 w-[100px] relative ">
                   <Image
                     src={card.brandLogo}
                     alt="Brand Logo"
-                    width={80}
-                    height={40}
-                    className="mx-auto"
+                    fill
+                    className="object-contain"
+                     sizes="(max-width: 768px) 120px, 180px"
                   />
                 </div>
+                </div>
+
+                {/* Title & Price */}
                 <p className="text-lg font-semibold text-gray-800">{card.title}</p>
                 <p className="text-sm text-gray-600">{card.price}</p>
               </div>
+
             </div>
           </div>
         ))}

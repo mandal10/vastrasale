@@ -33,3 +33,12 @@ body {
   height: 12px;
   background-color: #00398F; /* yellow for active */
 }
+
+/* app/globals.css or any global CSS */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

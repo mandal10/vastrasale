@@ -9,6 +9,12 @@ const products = [
   { image: "/assets/images/t3.jpg", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
   { image: "/assets/images/t4.png", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
   { image: "/assets/images/t5.jpg", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
+{ image: "/assets/images/t1.jpg", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
+  { image: "/assets/images/t2.png", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
+  { image: "/assets/images/t3.jpg", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
+  { image: "/assets/images/t4.png", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
+  { image: "/assets/images/t5.jpg", title: "Womens Denim Jacket", price: 700, originalPrice: 1000, discount: 30, rating: 4.4 },
+
 ];
 
 export default function TrendingProductClient() {
@@ -33,7 +39,7 @@ export default function TrendingProductClient() {
 
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 800,
     slidesToShow,
     slidesToScroll: 1,
