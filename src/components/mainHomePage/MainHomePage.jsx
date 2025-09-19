@@ -8,6 +8,7 @@ import TrendingOffers from '../TrendingOffers/TrendingOffers'
 import PromoBanner from '../PromoBanner'
 import ShopByCategories from '../ShopByCategories'
 import TestimonialSlider from '../testimonial/TestimonialSlider'
+import ProductListing from '../ProductListing'
 
 const MainHomePage = () => {
   return (
@@ -20,6 +21,7 @@ const MainHomePage = () => {
         <TrendingOffers/>
         <PromoBanner/>
         <ShopByCategories/>
+        <ProductListing/>
         <TestimonialSlider/>
     </div>
   )

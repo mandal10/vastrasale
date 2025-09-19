@@ -2,11 +2,12 @@
 "use client";
 
 import React from "react";
+import { ScaleLoader } from "react-spinners";
 
 export default function Loading() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="w-16 h-16 border-4 border-red-300 border-t-red-600 rounded-full animate-spin"></div>
+    <div className="flex items-center justify-center min-h-[150px] bg-gray-50">
+      <ScaleLoader color="#dc2626" height={35} width={4} radius={2} margin={2} />
     </div>
   );
 }

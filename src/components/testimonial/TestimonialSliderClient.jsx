@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const NextArrow = ({ onClick }) => (
-  <button onClick={onClick} className="absolute right-0 top-1/2 cursor-pointer transform -translate-y-1/2 z-10 bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-full" aria-label="Next">
+  <button
+    onClick={onClick}
+    className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-full"
+    aria-label="Next"
+  >
     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
     </svg>
@@ -15,7 +18,11 @@ const NextArrow = ({ onClick }) => (
 );
 
 const PrevArrow = ({ onClick }) => (
-  <button onClick={onClick} className="absolute left-0 top-1/2 cursor-pointer transform -translate-y-1/2 z-10 bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-full" aria-label="Previous">
+  <button
+    onClick={onClick}
+    className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-300 hover:bg-gray-400 text-gray-800 p-2 rounded-full"
+    aria-label="Previous"
+  >
     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
     </svg>
@@ -41,64 +48,66 @@ const StarRating = ({ stars }) => (
 );
 
 export default function TestimonialSliderClient({ testimonials }) {
-  const [mounted, setMounted] = useState(false);
-  const [slidesToShow, setSlidesToShow] = useState(2);
-  const [arrows, setArrows] = useState(true);
-
-  useEffect(() => {
-    setMounted(true);
-
-    const updateSettings = () => {
-      const width = window.innerWidth;
-      if (width < 700) {
-        setSlidesToShow(1);
-        setArrows(false);
-      } else {
-        setSlidesToShow(2);
-        setArrows(true);
-      }
-    };
-
-    updateSettings();
-    window.addEventListener("resize", updateSettings);
-    return () => window.removeEventListener("resize", updateSettings);
-  }, []);
-
-  if (!mounted || !testimonials?.length) return null; // ✅ safely handle undefined
+  if (!testimonials?.length) return null;
 
   const settings = {
-    slidesToShow,
-    arrows,
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
+    arrows: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024, // below 1024px
+        settings: {
+          slidesToShow: 2,
+          arrows: true,
+        },
+      },
+      {
+        breakpoint: 768, // below 768px
+        settings: {
+          slidesToShow: 2,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 550, // mobile devices
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="">
-    <Slider {...settings}>
-      {testimonials.map(({ id, name, image, rating, stars, text }) => (
-        <div key={id} className="px-2 pb-5">
-          <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
-            <div className="relative w-28 h-28 rounded-full border-4 border-white shadow-xl ring-4 ring-yellow-500 mb-4 overflow-hidden transition-transform duration-300 hover:scale-105">
-              <Image 
-              src={image}
-               alt={name} 
-               fill
-                className="rounded-full" 
-                 sizes="(max-width: 768px) 120px, 180px"
-              
-              />
+    <div className="w-[95%] max-w-[1400px] mx-auto py-10">
+      <Slider {...settings}>
+        {testimonials.map(({ id, name, image, rating, stars, text }) => (
+          <div key={id} className="px-2 pb-5">
+            <div className="bg-white py-6 rounded-lg shadow-md text-center flex flex-col items-center">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-xl ring-4 ring-yellow-500 mb-4 overflow-hidden transition-transform duration-300 hover:scale-105">
+                <Image
+                  src={image}
+                  alt={name}
+                  fill
+                  className="rounded-full object-cover"
+                  sizes="(max-width: 768px) 120px, 180px"
+                />
+              </div>
+              <StarRating stars={stars} />
+              <p className="text-gray-700 font-semibold mt-2 text-sm sm:text-base px-4">{rating.toFixed(1)}</p>
+              <p className="text-gray-600 mt-4 max-w-md text-sm sm:text-base">
+                {text.length > 100 ? `${text.slice(0, 100)}...` : text}
+              </p>
             </div>
-            <StarRating stars={stars} />
-            <p className="text-gray-700 font-semibold mt-2">{rating.toFixed(1)}</p>
-            <p className="text-gray-600 mt-4 max-w-md">{text}</p>
           </div>
-        </div>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
     </div>
   );
 }

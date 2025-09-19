@@ -1,12 +1,10 @@
-// app/components/DealsOfTheDay.js
-"use client"
-import dynamic from "next/dynamic";
-import DealsOfTheDaySSR from "./DealsOfTheDaySSR";
+"use client";
 
-// 🔹 Dynamically import Client Component (no SSR)
+import dynamic from "next/dynamic";
+
+// Just load client component (no SSR, no skeleton)
 const DealsOfTheDayClient = dynamic(() => import("./DealsOfTheDayClient"), {
   ssr: false,
-  loading: () => <DealsOfTheDaySSR />, // fallback skeleton
 });
 
 export default function DealsOfTheDay() {

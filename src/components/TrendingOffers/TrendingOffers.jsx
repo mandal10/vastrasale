@@ -1,8 +1,8 @@
 "use client"
 import { useState, useEffect } from "react";
 import TrendingOffersClient from "./TrendingOffersClient";
-import TrendingOffersSkeleton from "./TrendingOffersSkeleton";
 import { trendingCards } from "./data";
+import Loading from "@/app/Loading";
 
 export default function TrendingOffers() {
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ export default function TrendingOffers() {
   }, []);
 
   return loading ? (
-    <TrendingOffersSkeleton count={3} />
+    <Loading />
   ) : (
     <section className="slider-container py-10 relative">
       <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">

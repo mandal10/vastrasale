@@ -1,107 +1,75 @@
 'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
 
 const categories = [
   {
-    src: '/assets/images/c1.jpg',
-    alt: 'Category 1',
-    price: '$29.99',
-    heading: 'Category 1',
-    description: 'This is the description for category 1',
-    rating: 4.5,
+    title: 'T-Shirts',
+    link: '/categories/tshirts',
+    img: '/assets/images/t2.png', // T-shirt
   },
   {
-    src: '/assets/images/c2.jpg',
-    alt: 'Category 2',
-    price: '$39.99',
-    heading: 'Category 2',
-    description: 'This is the description for category 2',
-    rating: 4.0,
+    title: 'Jeans',
+    link: '/categories/jeans',
+    img: '/assets/images/t2.png', // Jeans
   },
   {
-    src: '/assets/images/c4.jpg',
-    alt: 'Category 3',
-    price: '$19.99',
-    heading: 'Category 3',
-    description: 'This is the description for category 3',
-    rating: 4.7,
+    title: 'Sneakers',
+    link: '/categories/sneakers',
+    img: '/assets/images/t2.png', // Sneakers
   },
   {
-    src: '/assets/images/c3.jpg',
-    alt: 'Category 4',
-    price: '$24.99',
-    heading: 'Category 4',
-    description: 'This is the description for category 4',
-    rating: 4.2,
+    title: 'Watches',
+    link: '/categories/watches',
+    img: '/assets/images/t2.png', // Watch
   },
   {
-    src: '/assets/images/c5.jpg',
-    alt: 'Category 5',
-    price: '$49.99',
-    heading: 'Category 5',
-    description: 'This is the description for category 5',
-    rating: 4.8,
+    title: 'Hoodies',
+    link: '/categories/hoodies',
+    img: '/assets/images/t2.png', // Hoodie
   },
   {
-    src: '/assets/images/c6.jpg',
-    alt: 'Category 6',
-    price: '$34.99',
-    heading: 'Category 6',
-    description: 'This is the description for category 6',
-    rating: 4.3,
+    title: 'Backpacks',
+    link: '/categories/backpacks',
+    img: '/assets/images/t2.png', // Backpack
   },
   {
-    src: '/assets/images/c1.jpg',
-    alt: 'Category 1',
-    price: '$29.99',
-    heading: 'Category 1',
-    description: 'This is the description for category 1',
-    rating: 4.5,
+    title: 'Sunglasses',
+    link: '/categories/sunglasses',
+    img: '/assets/images/t2.png', // Sunglasses
   },
   {
-    src: '/assets/images/c2.jpg',
-    alt: 'Category 2',
-    price: '$39.99',
-    heading: 'Category 2',
-    description: 'This is the description for category 2',
-    rating: 4.0,
+    title: 'Jackets',
+    link: '/categories/jackets',
+    img: '/assets/images/t2.png', // Jacket
   },
 ];
 
-export default function ShopByCategories() {
+export default function ShopByCategory() {
   return (
-    <section className="pb-10  md:pb-0 w-[95%] max-w-[1400px] mx-auto bg-white px-2">
-      <h2 className="text-3xl md:text-4xl font-semibold mb-8 mt-0 md:mt-0">Shop by Categories</h2>
+    <section className="w-[95%] max-w-[1400px] mx-auto py-10">
+      <h2 className="text-3xl md:text-4xl font-semibold mb-6">Shop by Categories</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 h-[400px] sm:h-[600px] md:h-[450px]">
-        {categories.map((cat, index) => (
-          <div
-            key={index}
-            className="relative rounded-lg overflow-hidden cursor-pointer  group"
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {categories.map((cat, i) => (
+          <Link
+            href={cat.link}
+            key={i}
+            className="block group rounded-lg overflow-hidden relative shadow-md"
           >
-            <Image
-              src={cat.src}
-              alt={cat.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-              priority={index < 3}
-            />
-            {/* Bottom Slide-up Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 bg-black/10 bg-opacity-70 text-white p-4
-              transform translate-y-full opacity-0
-              group-hover:translate-y-0 group-hover:opacity-100
-              transition-transform transition-opacity duration-300 ease-in-out
-              ">
-              <h3 className="text-xl font-semibold mb-1">{cat.heading}</h3>
-              <p className="text-sm mb-1">{cat.description}</p>
-              <p className="text-lg font-bold mb-1">{cat.price}</p>
-              <p className="text-yellow-400">
-                {'★'.repeat(Math.floor(cat.rating))}{' '}
-                <span className="text-white">({cat.rating.toFixed(1)})</span>
-              </p>
+            <div className="relative w-full h-[200px] sm:h-[220px] md:h-[250px]">
+              <Image
+                src={`${cat.img}?w=500&h=500&fit=crop`}
+                alt={cat.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
-          </div>
+            <div className="absolute bottom-0 bg-black/60 w-full text-white py-2 px-3 text-sm font-semibold">
+              {cat.title}
+            </div>
+          </Link>
         ))}
       </div>
     </section>

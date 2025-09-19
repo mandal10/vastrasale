@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
-import { BsHeart, BsCart } from "react-icons/bs";
+import {  FaBars, FaTimes } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
+import { IoMdSearch } from "react-icons/io";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +28,9 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex flex-1 justify-center gap-5 xl:gap-6 text-gray-700 font-medium">
-          {["Men", "Women", "Kids", "Shop", "Contact Us"].map((item) => (
-            <a key={item} href="#" className="hover:text-blue-500 transition-colors">
+        <div className="hidden lg:flex flex-1 justify-center gap-5 xl:gap-6 text-black font-medium">
+          {["Men", "Women", "Kids", ].map((item) => (
+            <a key={item} href="#" className=" transition-colors">
               {item}
             </a>
           ))}
@@ -39,20 +42,17 @@ const Navbar = () => {
               type="text"
               placeholder="Search for products..."
               className="w-full rounded-[8px] border border-gray-300 bg-gray-50 pl-4 pr-10 py-2 text-sm shadow-sm
-                         focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                         outline-none transition"
             />
-            <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 cursor-pointer text-white p-2 rounded-full
+            <button className="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer text-black p-2 rounded-full
                                 transition-colors">
-              <FaSearch size={14} />
+              <IoMdSearch className="w-6 h-6 cursor-pointer text-black  transition" />
             </button>
           </div>
         </div>
 
         {/* Icons + Profile + Mobile Toggle */}
-        <div className="flex items-center  justify-end space-x-4 xl:space-x-6">
-          <BsHeart className="w-5 h-5 cursor-pointer text-gray-400 hover:text-blue-500 transition" />
-          <BsCart className="w-5 h-5 cursor-pointer text-gray-400 hover:text-blue-500 transition" />
-
+        <div className="flex items-center  justify-end space-x-4 xl:space-x-4">
           {/* Profile */}
           <div className="flex items-center  space-x-2">
             <Image
@@ -62,18 +62,22 @@ const Navbar = () => {
               height={32}
               className="rounded-full"
             />
-            <span className="text-gray-800 font-medium">Bapi Mandal</span>
+            
           </div>
+          <FaRegHeart size={18} className=" cursor-pointer text-black  transition" />
+          <FiShoppingCart size={18} className=" cursor-pointer text-black  transition" />
+
+          
 
 
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-gray-700 ml-2 focus:outline-none"
+          className="lg:hidden text-black ml-2 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+          {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
         </button>
       </div>
 
@@ -102,11 +106,11 @@ const Navbar = () => {
             type="text"
             placeholder="Search for products..."
             className="w-full rounded-[8px] border border-gray-300 bg-gray-50 pl-4 pr-10 py-2 text-sm shadow-sm
-                         focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                          transition"
           />
-          <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 text-white p-2 rounded-full
-                               hover:bg-purple-500 transition-colors cursor-pointer">
-            <FaSearch size={14} />
+          <button className="absolute right-2 top-1/2 -translate-y-1/2  text-black p-2 rounded-full
+                                transition-colors cursor-pointer">
+            <IoMdSearch className="w-6 h-6 cursor-pointer text-black  transition"  />
           </button>
         </div>
       </div>
